@@ -4,8 +4,15 @@ from fastapi import FastAPI
 import uvicorn
 import psycopg2
 import os
+from dotenv import load_dotenv
+from pathlib import Path
+load_dotenv()
+
+dotenv_path = Path('.env')
+load_dotenv(dotenv_path=dotenv_path)
 
 DB_CONNECTION = os.environ['DB_CONNECTION']
+
 
 conn = psycopg2.connect(DB_CONNECTION)
 
